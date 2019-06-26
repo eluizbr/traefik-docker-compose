@@ -1,0 +1,59 @@
+version: '3.5'
+services:
+  traefik:
+    container_name: proxy
+    image: traefik:1.7.2-alpine
+    command: --web --docker
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+      - '8080:8080'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./docker/traefik/traefik.toml:/traefik.toml
+    labels:
+      - 'traefik.backend=proxy'
+      - 'traefik.frontend.rule=Host:monitor.localhost'
+      - 'traefik.port=8080'
+    networks:
+      - frontends
+      - backends
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    volumes:
+      - './mongoDB/:/data/db'
+    expose:
+      - '27017'
+    ports:
+      - '27017:27017'
+    labels:
+      - 'traefik.enable=false'
+    networks:
+      - frontends
+      - backends
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    image: rabbitmq:3-alpine
+    # command: rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_federation_management rabbitmq_stomp
+    expose:
+      - '5672'
+    ports:
+      - '8081:15672'
+      - '5672:5672'
+    environment:
+      RABBITMQ_DEFAULT_USER: development
+      RABBITMQ_DEFAULT_PASS: development
+    labels:
+      - 'traefik.enable=false'
+    networks:
+      - frontends
+      - backends
+networks:
+  frontends:
+    name: custom_frontend_networks
+  backends:
+    name: custom_backend_networks
