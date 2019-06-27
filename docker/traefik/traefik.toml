@@ -11,7 +11,7 @@ defaultEntryPoints = ["https", "http"]
         entryPoint = "https"
     [entryPoints.https]
     address = ":443"
-    [entryPoint.https.tls]
+        [entryPoints.https.tls]
 
 
 [frontends]
