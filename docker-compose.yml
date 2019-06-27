@@ -34,7 +34,6 @@ services:
     container_name: rabbitmq
     restart: always
     image: rabbitmq:3-alpine
-    # command: rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_federation_management rabbitmq_stomp
     expose:
       - '5672'
     ports:
