@@ -31,7 +31,7 @@ defaultEntryPoints = ["https", "http"]
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "docker.localhost"
+domain = "polsecled.com"
 watch = true
 exposedByDefault = false
 
