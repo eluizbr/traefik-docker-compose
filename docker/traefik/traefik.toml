@@ -11,7 +11,8 @@ defaultEntryPoint = ["http", "https"]
         entryPoint = "https"
     [entryPoints.https]
     address = ":443"
-        [entryPoint.https.tls]
+    [entryPoint.https.tls]
+
 
 [frontends]
     [frontends.angular]
