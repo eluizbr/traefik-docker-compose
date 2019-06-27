@@ -30,9 +30,7 @@ services:
     ports:
       - '27017:27017'
     labels:
-      - 'traefik.backend=mongo'
-      - 'traefik.frontend.rule=Host:mongo.localhost'
-      - 'traefik.port=27017'
+      - 'traefik.enable=false'
     networks:
       - frontends
       - backends
@@ -50,9 +48,7 @@ services:
       RABBITMQ_DEFAULT_USER: development
       RABBITMQ_DEFAULT_PASS: development
     labels:
-      - 'traefik.backend=rabbitmq'
-      - 'traefik.frontend.rule=Host:rabbitmq.localhost'
-      - 'traefik.port=5672'
+      - 'traefik.enable=false'
     networks:
       - frontends
       - backends

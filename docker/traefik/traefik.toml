@@ -23,16 +23,6 @@ defaultEntryPoints = ["https", "http"]
 
 
 [backends]
-    [backends.mongo]
-        [backends.mongo.servers.mongo]
-        rule = "Host:mongo.localhost"
-        url = "http://mongo:27017"
-        weigth = 0
-    [backends.rabbitmq]
-        [backends.rabbitmq.servers.rabbitmq]
-        rule = "Host:rabbitmq.localhost"
-        url = "http://rabbitmq:5672"
-        weigth = 0
     [backends.storage_api]
         [backends.storage_api.servers.storage_api]
         rule = "Host:dev-storage.polsecled.com"
@@ -49,7 +39,7 @@ exposedByDefault = false
 email = "devops@polsec.ai"
 storage = "acme.json"
 onDemand = true
-entryPoint = "https"
 onHostRule = true
-  [acme.httpChallenge]
+entryPoint = "https"
+[acme.httpChallenge]
   entryPoint = "http"
