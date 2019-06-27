@@ -14,9 +14,13 @@ defaultEntryPoint = ["http", "https"]
     [frontends.angular]
     backend = "storage_api"
         [frontends.angular.routes.rota_1]
-        rule = "Host:dev-polsecai.polsecled.com"
+        rule = "Host:www.localhost"
         port = 81
-
+    [frontends.web2]
+    backend = "storage_api"
+        [frontends.web2.routes.rota_1]
+        rule = "Host:web.localhost"
+        port = 82
 
 [backends]
     [backends.mongo]
@@ -31,7 +35,7 @@ defaultEntryPoint = ["http", "https"]
         weigth = 0
     [backends.storage_api]
         [backends.storage_api.servers.storage_api]
-        rule = "Host:dev-storage.polsecled.com"
+        rule = "Host:storage.localhost"
         url = "http://storage:3000"
         weigth = 1
 
