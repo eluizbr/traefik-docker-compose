@@ -15,12 +15,11 @@ defaultEntryPoints = ["https", "http"]
 
 
 [frontends]
-    [frontends.angular]
+    [frontends.polsec_ai_front]
     backend = "storage_api"
-        [frontends.angular.routes.rota_1]
+        [frontends.polsec_ai_front.routes.rota_1]
         rule = "Host:dev-polsecai.polsecled.com"
         port = 81
-
 
 [backends]
     [backends.storage_api]
