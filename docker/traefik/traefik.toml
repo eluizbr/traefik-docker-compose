@@ -4,11 +4,11 @@ logLevel = "ERROR"
 defaultEntryPoints = ["https", "http"]
 
 [entryPoints]
-    [entryPoints.dashboard]
-        address = ":8080"
-        [entryPoints.dashboard.auth]
-            [entryPoints.dashboard.auth.basic]
-                users = ["admin:$apr1$LAmcv/0t$yvTuEQx751dBicyvudk6q/"]
+    # [entryPoints.dashboard]
+    #     address = ":8080"
+    #     [entryPoints.dashboard.auth]
+    #         [entryPoints.dashboard.auth.basic]
+    #             users = ["admin:$apr1$LAmcv/0t$yvTuEQx751dBicyvudk6q/"]
     [entryPoints.http]
     address = ":80"
     compress = true
