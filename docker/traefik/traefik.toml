@@ -16,16 +16,16 @@ defaultEntryPoints = ["https", "http"]
 
 [frontends]
     [frontends.polsec_ai_front]
-    backend = "storage_api"
+    backend = "api_storage_backend"
         [frontends.polsec_ai_front.routes.rota_1]
         rule = "Host:dev-polsecai.polsecled.com"
         port = 81
 
 [backends]
-    [backends.storage_api]
-        [backends.storage_api.servers.storage_api]
+    [backends.api_storage_backend]
+        [backends.api_storage_backend.servers.storage_api]
         rule = "Host:dev-storage.polsecled.com"
-        url = "http://storage:3000"
+        url = "http://api_storage_backend:3000"
         weigth = 1
 
 [docker]
