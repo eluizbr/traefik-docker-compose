@@ -23,9 +23,20 @@ defaultEntryPoint = ["http", "https"]
         port = 82
 
 [backends]
+    [backends.mongo]
+        [backends.mongo.servers.mongo]
+        rule = "Host:mongo.localhost"
+        url = "http://mongo:27017"
+        weigth = 0
+    [backends.rabbitmq]
+        [backends.rabbitmq.servers.rabbitmq]
+        rule = "Host:rabbitmq.localhost"
+        url = "http://rabbitmq:5672"
+        weigth = 0
     [backends.storage_api]
         [backends.storage_api.servers.storage_api]
-        url = "http://127.0.0.1:3000"
+        rule = "Host:storage.localhost"
+        url = "http://storage:3000"
         weigth = 1
 
 [docker]
