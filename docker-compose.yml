@@ -12,10 +12,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./docker/traefik/traefik.toml:/traefik.toml
-    labels:
-      - 'traefik.backend=proxy'
-      - 'traefik.frontend.rule=Host:monitor.localhost'
-      - 'traefik.port=8080'
     networks:
       - frontends
       - backends
