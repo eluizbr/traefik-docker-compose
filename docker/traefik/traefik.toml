@@ -4,11 +4,11 @@ defaultEntryPoint = ["http", "https"]
     [entryPoints.http]
     address = ":80"
     compress = true
-    #     [entryPoints.http.redirect]
-    #     entryPoint = "https"
-    # [entryPoints.https]
-    # address = ":443"
-    #     [entryPoint.https.tls]
+        [entryPoints.http.redirect]
+        entryPoint = "https"
+    [entryPoints.https]
+    address = ":443"
+        [entryPoint.https.tls]
 
 [frontends]
     [frontends.angular]
